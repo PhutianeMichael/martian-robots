@@ -50,10 +50,7 @@ interface Position {
             return { grid, robots, instructions };
         };
 
-        const main = () => {
-            const userInputFile = require('fs').readFileSync(0, 'utf-8').trim().split('\n');
-            if (userInputFile.length < 1) return;
-            const input: Input = parseInput(userInputFile);
+        export function processRobots(input: Input): string[] {
             const scents = new Set<string>();
             const directions = ['N', 'E', 'S', 'W'] as const;
             type Direction = typeof directions[number];
@@ -104,6 +101,14 @@ interface Position {
                 }
                 results.push(result);
             }
+            return results;
+        }
+
+        const main = () => {
+            const userInputFile = require('fs').readFileSync(0, 'utf-8').trim().split('\n');
+            if (userInputFile.length < 1) return;
+            const input: Input = parseInput(userInputFile);
+            const results = processRobots(input);
             results.forEach(res => console.log(res));
         };
 
