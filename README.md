@@ -50,6 +50,12 @@ npm run build
 node dist/martian-robots.js
 ```
 
+## Running the Application with Input File
+To run the application
+``` sh
+npm start < input.txt
+```
+
 ## Running Tests
 
 To run the tests:
