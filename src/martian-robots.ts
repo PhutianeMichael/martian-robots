@@ -19,12 +19,6 @@ interface Position {
             maxY: number;
         }
 
-        interface Input {
-            grid: Grid;
-            robots: Robot[];
-            instructions: string[];
-        }
-
         const main = () => {
             const userInputFile = require('fs').readFileSync(0, 'utf-8').trim().split('\n');
             if (userInputFile.length < 1) return;
